@@ -1,0 +1,105 @@
+.Navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 7vh;
+  background-color: var(--main-color-purple);
+}
+
+.Navbar a{
+  color: white;
+}
+
+.ContainerTitleNavbar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  padding-left: 40px;
+}
+
+.TitleNavbar:hover{
+  text-decoration: none;
+}
+
+.ContainerLinksNavbar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+}
+
+.ContainerLinksElemNavbar{
+  display: flex;
+  padding-right: 30px;
+}
+
+.Navbar .ArticleLink{
+  margin-right: 30px;
+}
+
+.ContainerConnection{
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: calc(7vh - 1px);
+  padding-right: 40px;
+}
+
+.ContainerConnection h3{
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.ContainerConnection h3:hover{
+  text-decoration: underline;
+}
+
+.ContainerConnectionElements{
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20vw;
+  height: 15vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border: 1px solid var(--main-color-purple);
+}
+
+.ConnectionBtn{
+  border: none;
+  padding: 7px 20px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  background-color: var(--main-color-purple);
+}
+
+.ContainerTitleNavbar a{
+  text-decoration: none;
+}
+
+.ConnectionBtn:hover{
+  filter: brightness(1.4);
+  -webkit-filter: brightness(1.4);
+}
+
+.ElemHide{
+  display: none;
+}
+
+.ElemDisplay{
+  display: flex;
+}

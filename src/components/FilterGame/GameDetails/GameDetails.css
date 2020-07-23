@@ -1,0 +1,49 @@
+.GameDetails{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.ContainerCardGame{
+  position: relative;
+  width: 416px;
+  height: 30vh;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.GameDetailsImg{
+  width: 416px;
+  height: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ContainerInfoGame{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 416px;
+  height: 40px;
+  z-index: 2;
+  bottom: 0;
+  color: white;
+  background-color: rgba(101, 59, 132, .7);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ContainerInfoGame p{
+  margin-right: 10px;
+}
+
+.ElemNameGame{
+  font-weight: 800;
+  margin-left: 10px;
+}

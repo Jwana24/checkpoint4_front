@@ -1,0 +1,70 @@
+.ImgBannerProfile{
+  height: 400px;
+  width: 100%;
+}
+
+.ContainerMainProfile{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ContainerImgName{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 200px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.ImgProfile{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.ContainerNameEdit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.NicknameProfile{
+  font-weight: 800;
+  text-align: center;
+}
+
+.ContainerGameSelection{
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.ContainerImgHeartContent{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.IconProfile{
+  width: 40px;
+  margin-right: 40px;
+}
+
+.IconProfile.Pen{
+  cursor: pointer;
+  margin-right: 0;
+}
+
+.Profile .LineFilter{
+  margin-top: 20px;
+}

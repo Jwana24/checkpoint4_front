@@ -1,5 +1,12 @@
+// modules
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+// components
+
+
+// css
+import './Profile.css';
 
 const Profile = () => {
   const [verify, setVerify] = useState([]);
@@ -14,8 +21,31 @@ const Profile = () => {
   }, []);
 
   return(
-    <div>
-      <p>{verify && verify.firstname}</p>
+    <div className="Profile">
+      <img className="ImgBannerProfile" src={verify.img_banner} />
+      <div className="ContainerMainProfile">
+
+        <div className="ContainerImgName">
+          <div className="ContainerImgProfile">
+            <img className="ImgProfile" src={verify.img_profile} />
+          </div>
+          <div className="ContainerNameEdit">
+            <p className="NicknameProfile">{verify && verify.firstname}</p>
+            <img className="IconProfile Pen" src={require('../../../Icons/editPen.png')} />
+          </div>
+        </div>
+
+        <div className="ContainerGameSelection">
+          <div className="ContainerImgHeartContent">
+            <img className="IconProfile" src={require('../../../Icons/fullHeart.png')} />
+            <h3>Ma sélection de jeux :</h3>
+          </div>
+          <div>
+            <hr className="LineFilter" />
+          </div>
+        </div>
+      </div>
+      <h2>Votre sélection est vide</h2>
     </div>
   )
 }

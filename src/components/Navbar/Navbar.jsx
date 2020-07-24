@@ -26,7 +26,7 @@ const Navbar = ({ userConnected, checkConnected }) => {
         <div className="ContainerLinksElemNavbar">
           {userConnected &&
             <Link to="/profile" className="LinkElemNavbar ProfileLink">
-              Profile
+              Profil
             </Link>
           }
           <Link to="/" className="LinkElemNavbar JeuLink">

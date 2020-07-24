@@ -18,7 +18,7 @@ const Navbar = ({ userConnected, checkConnected }) => {
   return(
     <nav className="Navbar">
       <div className="ContainerTitleNavbar">
-        <Link to="/home" className="TitleNavbar">
+        <Link to="/" className="TitleNavbar">
           SoGames
         </Link>
       </div>

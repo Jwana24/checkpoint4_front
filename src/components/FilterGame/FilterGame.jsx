@@ -63,6 +63,7 @@ const FilterGame = () => {
 
   return(
     <div className="FilterGame">
+      <h1>Jeux</h1>
       <div className="ContainerFiltersAndSearch">
         <div className="ContainerSearchBar">
           <p>Rechercher un jeu</p>
@@ -120,10 +121,18 @@ const FilterGame = () => {
         </div>
       </div>
       
+      <div className="ContainerLineFilter">
+        <hr className="LineFilter" />
+      </div>
+      
       <div className="ContainerAllGamesFilter">
-        {resultSearch && resultSearch.map(elem => {
-          return <GameDetails elem={elem} />
-        })}
+        {resultSearch.length > 0
+          ?resultSearch.map(elem => {
+            return <GameDetails elem={elem} />
+          })
+          :game.map(elem => {
+            return <GameDetails elem={elem} />
+          })}
       </div>
     </div>
   )

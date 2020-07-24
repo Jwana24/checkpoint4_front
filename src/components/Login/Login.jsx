@@ -1,20 +1,49 @@
+// modules
 import React, { useState } from 'react';
+import axios from 'axios';
+import jwt from 'jsonwebtoken';
+import { useHistory } from 'react-router-dom';
 
+// css
 import './Login.css';
 
-const Login = () => {
+const Login = (props) => {
   const [formLogin, setFormLogin] = useState({
     email: '',
     password: ''
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  let history = useHistory();
 
   const handleChange = (e) => {
     setFormLogin({
+      ...formLogin,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/users/login', formLogin, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(res => {
+      const decoded = jwt.decode(res.data.token);
+      const dataUser = decoded.user[0];
+
+      if(res.data.token){
+        sessionStorage.setItem("user", res.data.token);
+        sessionStorage.setItem("info-user", JSON.stringify(dataUser));
+        history.push('/');
+        props.checkConnected();
+      }
+
+      setFormLogin({
+        email: '',
+        password: ''
+      });
     });
   };
 
@@ -33,7 +62,7 @@ const Login = () => {
             name="email"
             type="email"
             value={formLogin.email}
-            placeholder="jean-d@gmail.com"
+            placeholder="jean-dupont@gmail.com"
             onChange={handleChange}
             required
           />

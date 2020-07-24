@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import './Register.css';
 
@@ -6,16 +7,36 @@ const Register = () => {
   const [formRegister, setFormRegister] = useState({
     firstname: '',
     lastname: '',
+    nickname: '',
+    description: '',
     email: '',
     password: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:5000/api/users', formRegister)
+    .then(res => res.data)
+    .then(res => alert('Votre inscription a été validé. Bienvenue !'))
+    .catch(error => {
+      if(!formRegister.firstname || !formRegister.lastname || !formRegister.nickname || !formRegister.description || !formRegister.email || !formRegister.password){
+          console.log(error);
+          alert(`Erreur lors de votre inscription : ${error.message}`);
+      }
+    });
+    setFormRegister({
+      firstname: '',
+      lastname: '',
+      nickname: '',
+      description: '',
+      email: '',
+      password: ''
+    })
   };
 
   const handleChange = (e) => {
     setFormRegister({
+      ...formRegister,
       [e.target.name]: e.target.value
     });
   };
@@ -29,14 +50,14 @@ const Register = () => {
             <label
               htmlFor="firstname"
             >
-              Nom
+              Prénom
             </label>
             <input
               id="firstname"
               name="firstname"
               type="text"
               value={formRegister.firstname}
-              placeholder="DUPONT"
+              placeholder="Alexis"
               onChange={handleChange}
               required
             />
@@ -46,14 +67,14 @@ const Register = () => {
             <label
               htmlFor="lastname"
             >
-              Prénom
+              Nom
             </label>
             <input
               id="lastname"
               name="lastname"
               type="text"
               value={formRegister.lastname}
-              placeholder="Jean"
+              placeholder="DUPONT"
               onChange={handleChange}
               required
             />
@@ -91,6 +112,40 @@ const Register = () => {
               value={formRegister.password}
               onChange={handleChange}
               required
+            />
+          </div>
+        </div>
+
+        <div className="ContainerInfoMiscellanous">
+          <div className="ContainerFormElem">
+            <label
+              htmlFor="nickname"
+            >
+              Nickname
+            </label>
+            <input
+              id="nickname"
+              name="nickname"
+              type="text"
+              value={formRegister.nickname}
+              placeholder="Jeandu33"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="ContainerFormElem">
+            <label
+              htmlFor="description"
+            >
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              value={formRegister.description}
+              placeholder="Votre texte..."
+              onChange={handleChange}
             />
           </div>
         </div>

@@ -1,4 +1,10 @@
 .FilterGame{
+  height: 30vh;
+  margin-top: 40px;
+}
+
+.FilterGame h1{
+  margin-bottom: 40px;
 }
 
 .ContainerFiltersAndSearch{
@@ -48,4 +54,19 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.ContainerLineFilter{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.LineFilter{
+  width: 80%;
+  height: 0.5px;
+  border: 0;
+  background-color: var(--main-color-purple);
+  box-shadow: 0 1px 2px var(--main-color-purple);
 }

@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ userConnected, checkConnected }) => {
   const [open, setOpen] = useState(false);
 
-  
+  let history = useHistory();
+
+  const logout = () => {
+    sessionStorage.removeItem("info-user");
+    sessionStorage.removeItem("user");
+    history.push('/');
+    checkConnected();
+  }
 
   return(
     <nav className="Navbar">
@@ -17,15 +24,23 @@ const Navbar = () => {
       </div>
       <div className="ContainerLinksNavbar">
         <div className="ContainerLinksElemNavbar">
+          {userConnected &&
+            <Link to="/profile" className="LinkElemNavbar ProfileLink">
+              Profile
+            </Link>
+          }
+          <Link to="/" className="LinkElemNavbar JeuLink">
+            Accueil
+          </Link>
           <Link to="/articles" className="LinkElemNavbar ArticleLink">
             Articles
           </Link>
-          <Link to="/games" className="LinkElemNavbar JeuLink">
-            Jeux
-          </Link>
         </div>
         <div className="ContainerConnection">
-          <h3 onClick={() => setOpen(!open)}>Connexion</h3>
+          {userConnected
+            ?<h3 onClick={logout}>Déconnexion</h3>
+            :<h3 onClick={() => setOpen(!open)}>Connexion</h3>
+          }
           <div
             className={`ContainerConnectionElements ${open ? 'ElemDisplay' : 'ElemHide'}`}
           >

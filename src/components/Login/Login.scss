@@ -1,0 +1,23 @@
+@import '../../index.scss';
+
+.Login{
+  height: 54vh;
+  margin-top: 40px;
+  form{
+    @include flex($direction: column, $align: center, $justify: null);
+    margin-top: 40px;
+    label{
+      margin-bottom: 10px;
+    }
+    .ContainerFormElem{
+      @include flex($direction: column, $align: flex-start, $justify: null);
+      width: 35%;
+      &:first-child{
+        margin-bottom: 40px;
+      }
+    }
+  }
+  .ConnectionBtn{
+    margin-top: 20px;
+  }
+}

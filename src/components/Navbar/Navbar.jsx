@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import './Navbar.css';
+import './Navbar.scss';
 
 const Navbar = ({ userConnected, checkConnected }) => {
   const [open, setOpen] = useState(false);

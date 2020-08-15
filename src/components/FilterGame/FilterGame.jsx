@@ -4,8 +4,9 @@ import axios from 'axios';
 
 // components
 import GameDetails from './GameDetails/GameDetails';
+
 // css
-import './FilterGame.css';
+import './FilterGame.scss';
 
 const FilterGame = () => {
   const [search, setSearch] = useState("");
@@ -20,7 +21,6 @@ const FilterGame = () => {
 
   const handleChangeSearch = (e) => {
     e.preventDefault();
-    console.log(search)
     setSearch(e.target.value);
     if(search !== ''){
       setSelectValueCat({ gameCategory: null });
@@ -63,7 +63,7 @@ const FilterGame = () => {
 
   return(
     <div className="FilterGame">
-      <h1>Jeux</h1>
+      <h1>Liste des jeux</h1>
       <div className="ContainerFiltersAndSearch">
         <div className="ContainerSearchBar">
           <p>Rechercher un jeu</p>
@@ -79,40 +79,44 @@ const FilterGame = () => {
         <div className="ContainerCatDevFilter">
           <div className="ContainerCategoryFilter">
             <p>Filtrer par genre</p>
-            <select
-              id="gameCategory"
-              name="gameCategory"
-              onChange={handleChangeCat}
-            >
-              {game.map((game, index) =>{
-                return <option
-                    key={index}
-                    name={game.category_name}
-                    value={game.category_name}
-                  >
-                    {game.category_name}
-                </option>
-              })}
-            </select>
+            <div className="select-style">
+              <select
+                id="gameCategory"
+                name="gameCategory"
+                onChange={handleChangeCat}
+              >
+                {game.map((game, index) =>{
+                  return <option
+                      key={index}
+                      name={game.category_name}
+                      value={game.category_name}
+                    >
+                      {game.category_name}
+                  </option>
+                })}
+              </select>
+            </div>
           </div>
 
           <div className="ContainerDeveloperFilter">
             <p>Filtrer par développeurs</p>
-            <select
-              id="gameDeveloper"
-              name="gameDeveloper"
-              onChange={handleChangeDev}
-            >
-              {game.map((game, index) =>{
-                return <option
-                  key={index}
-                  name={game.developer_name}
-                  value={game.developer_name}
-                >
-                  {game.developer_name}
-                </option>
-              })}
-            </select>
+            <div className="select-style">
+              <select
+                id="gameDeveloper"
+                name="gameDeveloper"
+                onChange={handleChangeDev}
+              >
+                {game.map((game, index) =>{
+                  return <option
+                    key={index}
+                    name={game.developer_name}
+                    value={game.developer_name}
+                  >
+                    {game.developer_name}
+                  </option>
+                })}
+              </select>
+            </div>
           </div>
         </div>
 

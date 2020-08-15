@@ -13,7 +13,7 @@ import PrivateRoute from './components/Private/PrivateRoute';
 import Profile from './components/Private/Profile/Profile';
 
 // css
-import './App.css';
+import './App.scss';
 
 const App = () => {
   const [userConnected, setUserConnected] = useState(false);

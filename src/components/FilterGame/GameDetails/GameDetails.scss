@@ -1,0 +1,39 @@
+@import '../../../index.scss';
+
+.GameDetails{
+  @include flex($direction: null, $align: null, $justify: center);
+  margin-top: 40px;
+  .ContainerCardGame{
+    position: relative;
+    width: 416px;
+    height: 30vh;
+    z-index: 1;
+    overflow: hidden;
+    @include border-radius($value: 10px);
+    .GameDetailsImg{
+      width: 416px;
+      height: 233px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .ContainerInfoGame{
+      position: absolute;
+      @include flex($direction: null, $align: center, $justify: center);
+      width: 416px;
+      height: 40px;
+      z-index: 2;
+      bottom: 0;
+      color: white;
+      background-color: rgba(101, 59, 132, .7);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      p{
+        margin-right: 10px;
+        .ElemNameGame{
+          font-weight: 800;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

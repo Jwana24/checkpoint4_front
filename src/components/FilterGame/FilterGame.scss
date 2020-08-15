@@ -1,0 +1,78 @@
+@import '../../index.scss';
+
+.FilterGame{
+  height: 130vh;
+  margin-top: 40px;
+  h1{
+    margin-bottom: 40px;
+  }
+  .ContainerFiltersAndSearch{
+    @include flex($direction: null, $align: center, $justify: space-evenly);
+    .ContainerSearchBar{
+      @include flex($direction: null, $align: center, $justify: null);
+      width: 60%;
+      p{
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      input{
+        width: 56%;
+      }
+    }
+    .ContainerCatDevFilter{
+      @include flex($direction: column, $align: null, $justify: null);
+      width: 40%;
+      p{
+        width: 40%;
+        text-align: left;
+      }
+      .select-style{
+        border: 1px solid #ccc;
+        width: 190px;
+        border-radius: 3px;
+        overflow: hidden;
+        background: #fafafa url("../../Icons/arrowDown.svg") no-repeat 90% 50%;
+        background-size: 15px;
+        select{
+          padding: 5px 5px;
+          width: 190px;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+          background-image: none;
+          -webkit-appearance: none;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+      .ContainerCategoryFilter{
+        margin-bottom: 15px;
+      }
+      .ContainerCategoryFilter,
+      .ContainerDeveloperFilter{
+        display: flex;
+      }
+    }
+    .ContainerBtnFilter{
+      @include flex($direction: null, $align: null, $justify: flex-start);
+      width: 15%;
+    }
+  }
+  .ContainerLineFilter{
+    @include flex($direction: null, $align: null, $justify: center);
+    width: 100%;
+    margin-top: 40px;
+    .LineFilter{
+      width: 80%;
+      height: 0.5px;
+      border: 0;
+      background-color: $mainColorPurple;
+      box-shadow: 0 1px 2px $mainColorPurple;
+    }
+  }
+  .ContainerAllGamesFilter{
+    @include flex($direction: null, $align: null, $justify: space-around);
+    flex-wrap: wrap;
+  }
+}

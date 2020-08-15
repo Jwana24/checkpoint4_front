@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 // css
-import './GameDetails.css';
+import './GameDetails.scss';
 
 const GameDetails = ({ elem }) => {
   return(

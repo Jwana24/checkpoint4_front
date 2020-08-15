@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 
 // css
-import './Login.css';
+import './Login.scss';
 
 const Login = (props) => {
   const [formLogin, setFormLogin] = useState({

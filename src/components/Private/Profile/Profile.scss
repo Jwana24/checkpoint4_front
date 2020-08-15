@@ -1,0 +1,58 @@
+@import '../../../index.scss';
+
+.Profile{
+  .ImgBannerProfile{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0px 3px 10px grey;
+  }
+  .ContainerMainProfile{
+    @include flex($direction: null, $align: center, $justify: space-between);
+    .ContainerImgName{
+      @include flex($direction: column, $align: flex-start, $justify: center);
+      width: 200px;
+      margin-left: 30px;
+      margin-top: 30px;
+      .ImgProfile{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        box-shadow: 2px 2px 15px grey;
+        @include border-radius($value: 50%);
+      }
+      .ContainerNameEdit{
+        @include flex($direction: null, $align: center, $justify: center);
+        width: 200px;
+        .NicknameProfile{
+          font-weight: 800;
+          text-align: center;
+        }
+        .IconProfile.Pen{
+          cursor: pointer;
+          margin-right: 0;
+        }
+      }
+    }
+    .ContainerGameSelection{
+      @include flex($direction: column, $align: null, $justify: null);
+      width: 65%;
+      .ContainerImgHeartContent{
+        @include flex($direction: null, $align: center, $justify: flex-start);
+        width: 100%;
+      }
+      .LineFilter{
+        margin-top: 20px;
+        width: 80%;
+        height: 0.5px;
+        border: 0;
+        background-color: $mainColorPurple;
+        box-shadow: 0 1px 2px $mainColorPurple;
+      }
+    }
+    .IconProfile{
+      width: 40px;
+      margin-right: 40px;
+    }
+  }
+}

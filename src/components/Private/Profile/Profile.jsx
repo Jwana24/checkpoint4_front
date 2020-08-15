@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 // css
-import './Profile.css';
+import './Profile.scss';
 
 const Profile = () => {
   const [verify, setVerify] = useState([]);

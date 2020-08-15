@@ -1,0 +1,77 @@
+@import '../../index.scss';
+
+.Navbar{
+  @include flex($direction: null, $align: center, $justify: center);
+  width: 100%;
+  height: 7vh;
+  background-color: $mainColorPurple;
+  a{
+    color: white;
+  }
+  .ContainerTitleNavbar{
+    @include flex($direction: null, $align: center, $justify: flex-start);
+    width: 80%;
+    padding-left: 40px;
+    a{
+      text-decoration: none;
+      &.TitleNavbar{
+        font-size: 1.5rem;
+        font-weight: 900;
+        text-shadow: 0px 5px 10px black;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .ContainerLinksNavbar{
+    @include flex($direction: null, $align: center, $justify: flex-end);
+    width: 20%;
+    .ContainerLinksElemNavbar{
+      display: flex;
+      padding-right: 30px;
+      a.JeuLink,
+      a.ProfileLink{
+        margin-right: 30px;
+      }
+      a{
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .ContainerConnection{
+      @include flex($direction: null, $align: center, $justify: null);
+      position: relative;
+      height: calc(7vh - 1px);
+      padding-right: 40px;
+      h3{
+        cursor: pointer;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .ContainerConnectionElements{
+        position: absolute;
+        right: 0;
+        top: 100%;
+        @include flex($direction: column, $align: null, $justify: space-between);
+        width: 20vw;
+        height: 15vh;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: white;
+        border: 1px solid $mainColorPurple;
+      }
+      .ContainerConnectionElements.ElemHide{
+        display: none;
+      }
+      .ContainerConnectionElements.ElemDisplay{
+        display: flex;
+      }
+    }
+  }
+}

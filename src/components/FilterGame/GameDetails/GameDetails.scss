@@ -10,6 +10,13 @@
     z-index: 1;
     overflow: hidden;
     @include border-radius($value: 10px);
+    .IconFav{
+      position: absolute;
+      top: 1%;
+      right: 1%;
+      width: 35px;
+      cursor: pointer;
+    }
     .GameDetailsImg{
       width: 416px;
       height: 233px;

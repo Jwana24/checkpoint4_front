@@ -55,4 +55,50 @@
       margin-right: 40px;
     }
   }
+  div.ContainerAllFavGames{
+    margin-left: 18%;
+    .ContainerFavGames{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .ContainerDetailsFav{
+        @include flex($direction: null, $align: null, $justify: center);
+        margin-top: 15px;
+        margin-right: 20px;
+        div:first-child{
+          position: relative;
+          width: 320px;
+          height: 20vh;
+          z-index: 1;
+          overflow: hidden;
+          @include border-radius($value: 10px);
+        }
+        .GameDetailsImg{
+          width: 320px;
+          height: auto;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        .ContainerInfoGame{
+          position: absolute;
+          @include flex($direction: null, $align: center, $justify: center);
+          width: 320px;
+          height: 40px;
+          z-index: 2;
+          bottom: 0;
+          color: white;
+          background-color: rgba(101, 59, 132, .7);
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          p{
+            margin-right: 10px;
+            .ElemNameGame{
+              font-weight: 800;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

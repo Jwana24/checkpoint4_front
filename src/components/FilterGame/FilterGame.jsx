@@ -11,7 +11,9 @@ import './FilterGame.scss';
 const FilterGame = () => {
   const [search, setSearch] = useState("");
   const [resultSearch, setResultSearch] = useState([]);
-  const [game, setGame] = useState([]);
+  const [game, setGame] = useState([]); // all games in the database
+  const [category, setCategory] = useState([]); // all categories in the database
+  const [developer, setDeveloper] = useState([]); // all developers in the database
   const [selectValueCat, setSelectValueCat] = useState({
     gameCategory: null
   });
@@ -48,8 +50,15 @@ const FilterGame = () => {
     axios.get('http://localhost:5000/api/games')
     .then(res => setGame(res.data))
     .catch(err => console.log(err));
-  }, []);
 
+    axios.get('http://localhost:5000/api/categories')
+    .then(res => setCategory(res.data))
+    .catch(err => console.log(err));
+
+    axios.get('http://localhost:5000/api/developers')
+    .then(res => setDeveloper(res.data))
+    .catch(err => console.log(err));
+  }, []);
   
   const handleClickSearch = () => {
     const existCategory = selectValueCat.gameCategory ? `&category=${selectValueCat.gameCategory}` : '';
@@ -85,13 +94,13 @@ const FilterGame = () => {
                 name="gameCategory"
                 onChange={handleChangeCat}
               >
-                {game.map((game, index) =>{
+                {category.map(category => {
                   return <option
-                      key={index}
-                      name={game.category_name}
-                      value={game.category_name}
+                      key={category.idcategory}
+                      name={category.name}
+                      value={category.name}
                     >
-                      {game.category_name}
+                      {category.name}
                   </option>
                 })}
               </select>
@@ -106,13 +115,13 @@ const FilterGame = () => {
                 name="gameDeveloper"
                 onChange={handleChangeDev}
               >
-                {game.map((game, index) =>{
+                {developer.map(developer =>{
                   return <option
-                    key={index}
-                    name={game.developer_name}
-                    value={game.developer_name}
+                    key={developer.iddeveloper}
+                    name={developer.name}
+                    value={developer.name}
                   >
-                    {game.developer_name}
+                    {developer.name}
                   </option>
                 })}
               </select>

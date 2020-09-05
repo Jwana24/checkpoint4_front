@@ -10,6 +10,12 @@ import './Profile.scss';
 
 const Profile = () => {
   const [verify, setVerify] = useState([]);
+  const [fav, setFav] = useState();
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setFav(favorites);
+  }, []);
 
   useEffect(() => {
     axios.post('http://localhost:5000/api/users/profile', verify, {
@@ -19,6 +25,8 @@ const Profile = () => {
     })
     .then(res => setVerify(res.data.authData.user[0]))
   }, []);
+
+  // console.log(fav && fav.map(games => games.name));
 
   return(
     <div className="Profile">
@@ -45,7 +53,25 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <h2>Votre sélection est vide</h2>
+      <div className="ContainerAllFavGames">
+        <div className="ContainerFavGames">
+          {
+            fav
+            ?fav.map(favGame => {
+              return <div className="ContainerDetailsFav">
+                <div>
+                  <img className="GameDetailsImg" src={favGame.img} />
+                  <div className="ContainerInfoGame">
+                    <p className="ElemNameGame">{favGame.name}</p>
+                    <p>{favGame.date}</p>
+                  </div>
+                </div>
+              </div>
+            })
+            :<h2>Votre sélection est vide</h2>
+          }
+        </div>
+      </div>
     </div>
   )
 }
